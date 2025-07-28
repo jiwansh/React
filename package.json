@@ -1,0 +1,33 @@
+{
+  "name": "namastereactcode",
+  "version": "1.0.0",
+  "description": "A React Learning Course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiwansh/React.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Jiwanshu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiwansh/React/issues"
+  },
+  "homepage": "https://github.com/jiwansh/React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserlist":[
+    "last 2 versions"
+  ]
+}
