@@ -2,14 +2,15 @@ import { imageUrl } from "../utils/constant";
 const RestaurantCard = (props) => {
   const { resData } = props;
 
+  // Fix: Destructure directly from resData, not resData.data
   const {
-    cloudinaryImageId,
-    name,
-    cuisines,
-    avgRating,
-    costForTwo,
-    deliveryTime,
-  } = resData?.data;
+    cloudinaryImageId = '',
+    name = '',
+    cuisines = [],
+    avgRating = '',
+    costForTwo = 0,
+    deliveryTime = 0,
+  } = resData || {};
 
   return (
     <div
@@ -27,7 +28,8 @@ const RestaurantCard = (props) => {
       <div className="res-card-content">
         <h3>{name}</h3>
         <hr />
-        <em>{cuisines.join(', ')}</em>
+        {/* Fallback for cuisines if undefined */}
+        <em>{Array.isArray(cuisines) ? cuisines.join(', ') : ''}</em>
         <h4>{avgRating} stars</h4>
         <h4>₹{costForTwo / 100} FOR TWO</h4>
         <h4>{deliveryTime} minutes</h4>
