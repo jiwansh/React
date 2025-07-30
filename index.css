@@ -28,7 +28,7 @@
     margin: 5px;
     padding: 5px;
     width: 200px;
-    height: 350px;
+    height: 450px;
     
 }
 .res-card:hover{
@@ -52,9 +52,11 @@
     height: 350px;
     background: lightgray ;
     margin: 20px;
+    display: flex;
 }
 .footer{
     border: 2px solid black;
+    text-align: center;
 }
 .menu{
     display: flex;

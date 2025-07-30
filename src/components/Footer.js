@@ -1,7 +1,9 @@
 const Footer= ()=>{
+  const currentYear = new Date().getFullYear();
     return (
         <div className="footer">
-          <h1>Hey,I am footer I can lick your foot</h1>
+          <p>© {currentYear} JFoodExpress. All Rights Reserved.</p>
+          <p>Developed in taste 😋 by Jiwanshu</p>
         </div>
     );
 };

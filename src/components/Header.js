@@ -13,8 +13,8 @@ const Header = () => {
       <div className="logo-container">
         {
           <a href="/">
-            {/* <img src={logo_url} alt="App Logo" className="logo" />  */}
-           <img src={Logo} alt="App Logo" className="logo" />
+            <img src={logo_url} alt="App Logo" className="logo" /> 
+          {/* <img src={Logo} alt="App Logo" className="logo" /> */}
           </a>
        
         }
