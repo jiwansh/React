@@ -47,3 +47,19 @@
     margin: 10px;
     cursor: pointer;
 }
+.shimmer-card{
+    width: 200px;
+    height: 350px;
+    background: lightgray ;
+    margin: 20px;
+}
+.footer{
+    border: 2px solid black;
+}
+.menu{
+    display: flex;
+}
+.resImage{
+    height: 300px;
+    width: 300px;
+}

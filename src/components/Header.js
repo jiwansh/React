@@ -1,5 +1,7 @@
 import { logo_url } from "../utils/constant";
 import { useState } from "react";
+import Logo from "../assets/foodvilla.png";
+import { Link } from "react-router-dom";
 const Header = () => {
   //   let btnName = 'Login';
 
@@ -9,13 +11,23 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img src={logo_url} alt="App Logo" className="logo" />
+        {
+          <a href="/">
+            {/* <img src={logo_url} alt="App Logo" className="logo" />  */}
+           <img src={Logo} alt="App Logo" className="logo" />
+          </a>
+       
+        }
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+         <li> <Link to="/">Home
+          </Link></li>
+          
+          <li><Link to="/about">
+          About Us</Link></li>
+          
+          <li><Link to="/contact">Contact Us</Link></li>
           <li>Cart</li>
           <button
             className="loginBtn"

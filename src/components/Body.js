@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import resList from "../utils/mockdata";
+import { Link } from "react-router-dom";
 const Body = () => {
   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
   // * useState() - Super Powerful variable
@@ -101,9 +102,18 @@ const Body = () => {
       <div className="res-container">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
-        {filteredRestaurant.map((restaurant) => (
+        {
+        filteredRestaurant.map((restaurant) => (
+          // return (
+          //   <Link
+          //   to={"/restaurant/"+restaurant.data.id}
+          //   key={restaurant.data.id}>
+          //     <RestaurantCard key={restaurant.data.id} resData={restaurant.data} />
+          //   </Link>
+          // );
           // Fix: Use restaurant.data.id as key, and pass restaurant.data as resData
           <RestaurantCard key={restaurant.data.id} resData={restaurant.data} />
+          
         ))}
       </div>
     </div>
