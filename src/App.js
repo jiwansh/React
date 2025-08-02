@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Profile from "./components/Profile";
 
 
 const AppLayout = () => {
@@ -35,8 +36,14 @@ const appRouter= createBrowserRouter([
               element:<Body/>
              },
             {
-              path:"/about",
-              element:<About/>
+              path:"/about", // '/' is for root or home page
+              element:<About/>,
+              children:[
+                {
+                  path:"profile", // relative path parentPath{path}=> localhost:1234/about/profile
+                  element:<Profile/>
+                }
+              ]
              },
              {
               path:"/contact",
