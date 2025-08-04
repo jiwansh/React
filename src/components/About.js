@@ -31,9 +31,9 @@ class About extends Component{
           <h1>About Us Page</h1>
           <p>This is the Jiwanshu learning React</p>
           {/* <Outlet/>  we cam also use children component directly*/ } 
-          {/* <Profile name="JiwanshuClass1"/> */}
+          <Profile name="JiwanshuClass1"/>
           {/* <Profile name="JiwanshuClass2"/> */}
-          <ProfileFunctionalComponenet name="Jiwanshu" xyz="abc"/>
+          {/* <ProfileFunctionalComponenet name="Jiwanshu" xyz="abc"/> */}
         </div>
        
     );

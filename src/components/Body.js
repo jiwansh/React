@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 const Body = () => {
   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
   // * useState() - Super Powerful variable
@@ -36,6 +37,11 @@ const Body = () => {
     setFilteredRestaurant(restaurantData);
 
   };
+
+//  const isOnline= useOnline();
+//  if(!isOnline){
+//   return <h1> 📴 Offline, please check your internet connection</h1>
+//  }
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -86,7 +92,9 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
+        {
+        /* // * looping through the <RestaurentCard /> 
+        // components Using Array.map() method */}
 
         {
         filteredRestaurant.map((restaurant) => (

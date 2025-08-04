@@ -3,3 +3,6 @@ export const imageUrl =
 
 export const logo_url =
     "https://images.unsplash.com/photo-1564216550945-b9aca66d0a10?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+export const getRestaurantMenuUrl = (id) =>
+   `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.406498&lng=78.47724389999999&restaurantId=${id}&catalog_qa=undefined&query=Biryani&submitAction=ENTER`;

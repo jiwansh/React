@@ -20,15 +20,15 @@ class Profile extends React.Component {
 
     }
      
-    //async componentDidMount() {
-    componentDidMount() {
+    async componentDidMount() {
+    // componentDidMount() {
         //API calls
-        // const data = await fetch("https://api.github.com/users/jiwansh");
-        // const json = await data.json();
-        // console.log(json);
-        // this.setState({
-        //     userInfo: json,
-        // });
+        const data = await fetch("https://api.github.com/users/jiwansh");
+        const json = await data.json();
+        console.log(json);
+        this.setState({
+            userInfo: json,
+        });
         // this.timer=setInterval(()=>{
         //     console.log("Nmaste Jiwanshu the OP");
         // },1000);

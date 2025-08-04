@@ -2,11 +2,13 @@ import { logo_url } from "../utils/constant";
 import { useState } from "react";
 import Logo from "../assets/foodvilla.png";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 const Header = () => {
   //   let btnName = 'Login';
 
   const [btnNameReact, setBtnNameReact] = useState('Login');
   // console.log('header render');
+  const isOnline= useOnline();
 
   return (
     <div className="header">
@@ -29,6 +31,9 @@ const Header = () => {
           
           <li><Link to="/contact">Contact Us</Link></li>
           <li>Cart</li>
+          <li><Link to="/instamart">Instamart</Link></li>
+          
+          <h1>{isOnline? "✅":"❌"}</h1>
           <button
             className="loginBtn"
             onClick={() => {
@@ -36,7 +41,7 @@ const Header = () => {
               btnNameReact === 'Login'
                 ? setBtnNameReact('Logout')
                 : setBtnNameReact('Login');
-              console.log(btnNameReact);
+              // console.log(btnNameReact);
             }}
           >
             {btnNameReact}
