@@ -402,3 +402,46 @@ Solution -> Lazy Loading: to split our code into smaller, logical chunks. A chun
 
 8) <Suspense>: a fallback UI (like a loading message or a shimmer) to show while the lazy-loaded component's code is being downloaded ,we can wrap up our lazy loaded component inside Suspense which has a attribute fallback={}, that will be displayed till lazy component gets loaded
 
+## Episode -10 - Tailwind CSS
+1) Different ways to add css to app:
+ - Plain CSS: The standard way to style by importing .css(index.css) files directly. It's simple, but all styles are global, which can cause conflicts.
+ - SASS/SCSS: A more powerful version of CSS (a preprocessor) that adds features like variables and nesting for better organization.
+ - Styled Components: A "CSS-in-JS" library where you write CSS inside your JavaScript to create components with automatically scoped styles.
+ - Material UI / Ant Design: Large libraries of pre-built, professionally designed React components that drastically speed up development.
+ - Bootstrap: A popular framework for rapid prototyping, used either with CSS classes or as a React component library.
+ - Tailwind CSS: A utility-first framework where you build custom designs by applying small, single-purpose classes directly in your JSX.
+
+2) Installing and setting up Tailwind in our environment, referiing official Tailwind docs,add a vs code extension named 'Tailwind CSS Intellisense'.
+
+3) Some important classes of tailwind css:
+- flex: Sets display: flex; on an element, making it a flexbox container.
+- m-4: Sets a margin of 1rem (16px) on all sides.
+- px- (e.g., px-4): Sets horizontal padding (padding-left and padding-right).
+- py- (e.g., py-2): Sets vertical padding (padding-top and padding-bottom).
+- border: Adds a thin (1px), solid, default-colored border to all sides.
+- border-solid: Explicitly sets the border-style to solid.
+- bg- (e.g., bg-blue-500): Sets the background color.
+- flex-wrap: Allows flex items to wrap onto the next line if there isn't enough space.
+- justify-between: Distributes flex items evenly; the first item is on the start line, and the last item is on the end line.
+- w- (e.g., w-1/2, w-full): Sets the width of an element.
+- w-[] (e.g., w-[250px]): Sets a custom, arbitrary width value.
+- items-center: Vertically aligns flex items to the center of the container.
+- rounded-lg: Applies a large border-radius, making the corners rounded.
+- hover:: A prefix that applies the following utility class only on mouse hover.
+- font-bold: Sets the font weight to bold.
+- text-lg: Sets the text size to large. 
+4) Pros & Cons of Using Tailwind Css:
+Pros:
+- Highly Optimized Builds: It scans your files and only includes the CSS you actually use, resulting in a very small production file. You never ship unused CSS.
+- Rapid Development: You can build and style components very quickly without leaving your HTML or JSX.
+- Enforces Consistency: The predefined design system helps maintain consistent spacing, sizing, and colors throughout your application.
+- Highly Customizable: You can configure everything in the tailwind.config.js file to match your project's design requirements.
+
+Cons:
+- Verbose HTML/JSX: Your markup can look cluttered with long strings of utility classes.
+
+- Learning Curve: You need to learn and remember Tailwind's specific class names instead of standard CSS properties.
+
+- No Pre-built Components: Unlike Bootstrap, it doesn't provide ready-to-use components like card or button. You build everything yourself with utilities.
+
+## Episode 11 -Data is the new Oil
