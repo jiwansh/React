@@ -46,26 +46,22 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
+    //  search box
     <div className="body">
-      {/* <div className="search-container">
-        <input type="text" placeholder="Search Food or Restaurant" />
-        <button>Search</button>
-      </div> */}
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 px-4 py-0.5">
           <input
             type="text"
             placeholder="Search a restaurant you want..."
-            className="searchBox"
+            className="border border-solid border-black "
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button
+         {/* search button  */}
+          <button className="px-4 py-0 m-4 bg-green-100 rounded-lg "
             onClick={() => {
-              // * Filter the restaurant cards and update the UI
-              // Use allRestaurants for searching, and use res.data.name for mock data structure
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -76,11 +72,11 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
+        <div className="filter m-4 px-4 py-0.5">
+          <button
+         // filter buttton
+          className="px-4 py-0 m-4 bg-teal-200 flex items-center rounded-lg"
           onClick={() => {
-            // * Filter logic
-            // Use allRestaurants for filtering, and use res.data.avgRating for mock data structure
             const filteredList = listOfRestaurants.filter(
               (res) => parseFloat(res.avgRating) > 4
             );
@@ -90,8 +86,9 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {
         /* // * looping through the <RestaurentCard /> 
         // components Using Array.map() method */}

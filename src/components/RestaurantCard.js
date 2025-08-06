@@ -14,19 +14,19 @@ const RestaurantCard = (props) => {
 
   return (
     <div
-      className="res-card"
-      style={{
-        backgroundColor: '#f0f0f0',
-      }}
+      className="res-card m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200 "
+      // style={{
+      //   backgroundColor: '#f0f0f0',
+      // }}
     >
       <img
-        className="res-logo"
+        className="res-logo rounded-lg h-[300px]"
         src={imageUrl + cloudinaryImageId}
         alt="Biryani"
       />
 
       <div className="res-card-content">
-        <h3>{name}</h3>
+        <h3 className=" font-bold py-4 text-lg ">{name}</h3>
         <hr />
         {/* Fallback for cuisines if undefined */}
         <em>{Array.isArray(cuisines) ? cuisines.join(', ') : ''}</em>
