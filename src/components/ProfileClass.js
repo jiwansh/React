@@ -16,7 +16,7 @@ class Profile extends React.Component {
             }
         }
 
-        console.log("child-Constructor" + this.props.name);
+        // console.log("child-Constructor" + this.props.name);
 
     }
      
@@ -25,7 +25,7 @@ class Profile extends React.Component {
         //API calls
         const data = await fetch("https://api.github.com/users/jiwansh");
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         this.setState({
             userInfo: json,
         });
@@ -42,19 +42,19 @@ class Profile extends React.Component {
         if(this.state.count2 != prevState.count2){
             //
         }
-        console.log("Componenet Did Update");
+        // console.log("Componenet Did Update");
     }
 
     componentWillUnmount(){
         //used for cleaning
         clearInterval(this.timer);
-        console.log("ComponentWillUnmount");
+        // console.log("ComponentWillUnmount");
     }
 
     render() {
         //returns some jsx
         // const { count } = this.state;
-        console.log("child-render" + this.props.name);
+        // console.log("child-render" + this.props.name);
         return (
             <div>
                 <h1>Profile Class Componenet</h1>;

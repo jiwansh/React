@@ -1,12 +1,12 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getRestaurantMenuUrl } from "./constant";
 
-const useRestaurant= (id)=>{
-      const [restaurant, setRestaurant]=useState(null);
-      const [menuItems, setMenuItems] = useState([]);
+const useRestaurant = (id) => {
+    const [restaurant, setRestaurant] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     // get data from api
-     useEffect(() => {
+    useEffect(() => {
         getRestaurantInfo();
     }, []);
 
@@ -14,22 +14,31 @@ const useRestaurant= (id)=>{
 
         const data = await fetch(getRestaurantMenuUrl(id));
         const json = await data.json();
-        console.log(json.data);
         const restaurantInfo = json?.data?.cards[2]?.card?.card?.info;
-        console.log(restaurantInfo);
         setRestaurant(restaurantInfo);
 
-        // menu of restaurant
-        const recommendedItems = json?.data?.cards
+        // Recommended menu of restaurant
+        // const recommendedItems = json?.data?.cards
+        //     ?.find((c) => c.groupedCard)
+        //     ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(
+        //         (c) => c?.card?.card?.title === "Recommended"
+        //     )?.card?.card?.itemCards;
+        // setMenuItems(recommendedItems || []);
+
+        // filtering al category menu
+        const allCategories = json?.data?.cards
             ?.find((c) => c.groupedCard)
-            ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(
-                (c) => c?.card?.card?.title === "Recommended"
-            )?.card?.card?.itemCards;
+            ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(c => {
+                const cardType = c?.card?.card?.["@type"];
+                return (
+                    cardType === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
+                    cardType === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+                );
+            });
+         setCategories(allCategories || []);
+    }
 
-        setMenuItems(recommendedItems || []);
-     }
-
-     //return restaurant data
-     return [restaurant,menuItems];
+    //return restaurant data
+    return [restaurant, categories];
 };
 export default useRestaurant;

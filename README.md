@@ -62,16 +62,17 @@ And at  last satisfied that done something for the day .
 npm start : launches development server 
 npm run build : produces production version in build / folder 
 
-2)React Element: A plane object that represents A DOM node .This object tells JSX what to render .
+2) React Element: A plane object that represents A DOM node .This object tells JSX what to render .
 
 3) Importing reactDom from "react-dom/client" not just "react-dom" in newer version (got an error)
 
 This is required to create Root.
 
 4) JSX (JavaScript XML)
-JSX improves the readibility of code :
 
- const ele = <h1>{title}<h2/>
+ JSX improves the readibility of code :
+
+ `const ele = <h1>{title}<h2/>`
 
 JSX is not a HTML it's like the HTML it gives a feature to write HTML code in Javascript environment .
 
@@ -94,9 +95,9 @@ Plugins: @babel/preset-env (ES features)
 
 7) React components:
 
-a) Class Components (legacy) 
+(a)  Class Components (legacy) 
 
-b) Function Components (modern) can use function name or arrow function 
+(b) Function Components (modern) can use function name or arrow function 
 
 const Comp = () => <h1> Hello</h1>
 
@@ -116,7 +117,7 @@ React automatically escapes input inside {} to prevent injection attacks (etc)
 
 {Title}-> refers to a value (eg variable or component function)
 
-<Title/> a component instance without children.
+`<Title/> a component instance without children.`
 
 <Title></Title> same,but allows nested children.
 

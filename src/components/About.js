@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import ProfileFunctionalComponenet from "./Profile"
 import Profile from "./ProfileClass";
 import { Component } from "react";
+import UserContext from "../utils/UserContext";
+//----------------Functional Componenet---------------
 // const About2= ()=>{
 //      return(
 //         <div>
@@ -14,7 +16,7 @@ import { Component } from "react";
        
 //      );
 // };
-
+//---------------------Class based componenet--------------
 class About extends Component{
   constructor(props){
     super(props);
@@ -29,6 +31,14 @@ class About extends Component{
     return (
       <div>
           <h1>About Us Page</h1>
+          <div>
+            LoggedIn User
+            <UserContext.Consumer>
+              {
+                ({loggedInUser})=> <h1 className="font-bold text-lg">{loggedInUser}</h1>
+              }
+            </UserContext.Consumer>
+          </div>
           <p>This is the Jiwanshu learning React</p>
           {/* <Outlet/>  we cam also use children component directly*/ } 
           <Profile name="JiwanshuClass1"/>

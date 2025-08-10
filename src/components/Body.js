@@ -1,8 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
   // * useState() - Super Powerful variable
@@ -13,6 +15,8 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState('');
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   console.log('Body rendered');
@@ -30,6 +34,7 @@ const Body = () => {
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&collection=83649&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null'
     );
     const json = await data.json();
+   
 
     const restaurantData = json?.data?.cards?.map(c => c.card?.card?.info).filter(info => info !== undefined);
     
@@ -38,10 +43,7 @@ const Body = () => {
 
   };
 
-//  const isOnline= useOnline();
-//  if(!isOnline){
-//   return <h1> 📴 Offline, please check your internet connection</h1>
-//  }
+  const {loggedInUser, setUserName} = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -81,25 +83,31 @@ const Body = () => {
               (res) => parseFloat(res.avgRating) > 4
             );
             setFilteredRestaurant(filteredList);
-            console.log(filteredList);
+            // console.log(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
         </div>
+        <div className="search m-4 px-4 py-0.5">
+          <label>UserName : </label>
+           <input className="border border-black p-2"
+           value={loggedInUser}
+           onChange={(e)=>setUserName(e.target.value)}/>
+        </div>
       </div>
       <div className="res-container flex flex-wrap">
         {
-        /* // * looping through the <RestaurentCard /> 
-        // components Using Array.map() method */}
-
-        {
         filteredRestaurant.map((restaurant) => (
-           <Link 
-      to={"/restaurant/" + restaurant.id} 
-      key={restaurant.id}
-    ><RestaurantCard resData={restaurant} />
-    </Link>
+           <Link to={"/restaurant/" + restaurant.id}  key={restaurant.id}>
+             {
+             /* If the restaurant is promoted then add a promoted label to it */
+                restaurant.promoted ?
+                 (<RestaurantCardPromoted resData={restaurant} />) :
+                 ( <RestaurantCard resData={restaurant} />)
+             }
+               
+           </Link>
             
           
         ))}

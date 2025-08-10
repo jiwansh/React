@@ -1,14 +1,16 @@
 import { logo_url } from "../utils/constant";
-import { useState } from "react";
+import { useState , useContext } from "react";
 import Logo from "../assets/foodvilla.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 const Header = () => {
-  //   let btnName = 'Login';
-
+  
   const [btnNameReact, setBtnNameReact] = useState('Login');
-  // console.log('header render');
+ 
   const isOnline= useOnline();
+
+const {loggedInUser}= useContext(UserContext);
 
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg lg:bg-yellow-100 sm:bg-green-300">
@@ -37,15 +39,14 @@ const Header = () => {
           <button
             className="loginBtn"
             onClick={() => {
-              //   btnName = 'Logout';
               btnNameReact === 'Login'
                 ? setBtnNameReact('Logout')
                 : setBtnNameReact('Login');
-              // console.log(btnNameReact);
             }}
           >
             {btnNameReact}
           </button>
+           <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

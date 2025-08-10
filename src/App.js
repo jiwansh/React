@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 
 //chunking
 // code splitting
@@ -25,9 +26,24 @@ const About = lazy(()=> import("./components/About"));
 
 
 const AppLayout = () => {
+
+const [userName, setUserName]= useState();
+
+// authentication
+useEffect(()=>{
+  const data= {
+    name: "Jiwanshu",
+  };
+  setUserName(data.name);
+},[]);
     return (
+      //default user context value
+      <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
         <div className="app" >
+          {/* <UserContext.Provider value={{loggedInUser:"Aman"}}> */}
         <Header/>
+        {/* </UserContext.Provider> */}
+        
         {/* <About/>
         <Body/>
         <Contact/> */}
@@ -35,7 +51,8 @@ const AppLayout = () => {
         <Outlet/>
         <Footer/>
         </div >
-    )
+        </UserContext.Provider>
+    );
 };
 
 const appRouter= createBrowserRouter([

@@ -15,7 +15,7 @@ const Profile= (props)=>{
         }
         
     },[]);
-    console.log("render");
+    // console.log("render");
 
     
 
