@@ -446,3 +446,20 @@ Cons:
 - No Pre-built Components: Unlike Bootstrap, it doesn't provide ready-to-use components like card or button. You build everything yourself with utilities.
 
 ## Episode 11 -Data is the new Oil
+
+1) Higher Order Component (HOC) : It takes a component as argument and then enhance it and returns the updated component , HOCs are pure function , they do not modify the behaviour of input component , instead just use it to enhance and return the updated component.
+eg. Labelling restaurant cards to promoted.
+
+2) Accordion: A UI feature where content is collapsed on clicking its header , similarly if any other header content is open and whenever clicked to other header , it should collapse all other opened sections. One can achieve this feature in react by using useState hook , map and rendering for index tracing , toggling . eg includes , restaurant menu category , FAQs etc.
+
+3) Controlled & Uncontrolled Components: In react if the componenet behaviour on input in controlled by react then its controlled else if the behaviour on input in controlled directly by DOM its uncontrolled , basically we have control over component what it will behave when user provides this input/click .
+
+4) Props Drilling : It is defined as passing data to child deep nested from parent class , if one wants the inner child to use the data , it need to pass the data through all intermediate children though or maybe the intermediate component did not needs it. So this is a problem, solution using Racts's useContext .
+
+5) useContext: A react hook or library to deal with problem of props drilling , in this once a data is created it acts as globally available and can be used by any child or nested child without passing to all unusing intermediate components :
+Steps to use useContext:
+(a) Create the context: use the method createContext() to create the required shareable data , this is generally done outside the component file so that it can be imported easily .
+(b) Provide the Context : next is wrap any parent component around the value using context Provider , now nay component mentioned inside this provider , will be able to use its value;
+(c) Consume the context : Now any child can consume the value using useContext.
+
+6) Using useContext inside class based component: since hooks are not allowed in cbc, there we can directly use useContext inside a CBC, but we can achieve this by using something called Consumer  which provides a function as its child.
