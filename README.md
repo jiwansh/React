@@ -1,6 +1,6 @@
-# Namaste React
+# Food Delivery App - React
 
-## Episode 01:Inception
+## 01:Inception
  1) Runnig a react from a HTML file using CDN links (first time).
 2) CreateElement method of React which uses 3 arguments to create any html elements,
 The first argument is type, second is object, third is child.
@@ -16,7 +16,7 @@ Render replaces previous stuff with its argument content,
 It does not append but replaces existing content.
 
 This was from my side, The overall experience was good learning for the first time from him  He is going into depth.
-## Episode 2- Igniting Our App. 
+## 02- Igniting Our App. 
 
 In this I Learned 👇
 What is NPM? It's  abbreviation reality, what it works
@@ -55,7 +55,7 @@ Country wise or browser version wise.
 And also correct answer to question why your app is fast ? It's not just React but also the superpower of bundlers and supporting stuff along with react .
 
 And at  last satisfied that done something for the day .
-## Episode 03- Laying The foundation 👇 
+## 03- Laying The foundation 👇 
 
 1) Scripts - package.json allows launching react without manually typing commands each time 
 
@@ -121,7 +121,7 @@ React automatically escapes input inside {} to prevent injection attacks (etc)
 
 <Title></Title> same,but allows nested children.
 
-## Episode 04-  show me the code 🧐
+## 04-  show me the code 🧐
 
 1) Building a Food Delivery App :
 
@@ -334,7 +334,7 @@ Link to the dynamic route using id ,like in our app we linked it to menu of the 
 
 
 And also Today finally I was able to fetch data from live Swiggy API like name of restaurant and it's image ,area and all ,though menu was not present in expected format will try soon that too .... 🖊
-## Episode-08: Let's Get Classy 🚀
+## 08: Let's Get Classy 🚀
 
 1) Nested Route is achieved by creating children of children and just passing the relative path :
 element:<About/>,
@@ -403,7 +403,7 @@ Solution -> Lazy Loading: to split our code into smaller, logical chunks. A chun
 
 8) <Suspense>: a fallback UI (like a loading message or a shimmer) to show while the lazy-loaded component's code is being downloaded ,we can wrap up our lazy loaded component inside Suspense which has a attribute fallback={}, that will be displayed till lazy component gets loaded
 
-## Episode -10 - Tailwind CSS
+## 10 - Tailwind CSS
 1) Different ways to add css to app:
  - Plain CSS: The standard way to style by importing .css(index.css) files directly. It's simple, but all styles are global, which can cause conflicts.
  - SASS/SCSS: A more powerful version of CSS (a preprocessor) that adds features like variables and nesting for better organization.
@@ -445,7 +445,7 @@ Cons:
 
 - No Pre-built Components: Unlike Bootstrap, it doesn't provide ready-to-use components like card or button. You build everything yourself with utilities.
 
-## Episode 11 -Data is the new Oil
+## 11 -Data is the new Oil
 
 1) Higher Order Component (HOC) : It takes a component as argument and then enhance it and returns the updated component , HOCs are pure function , they do not modify the behaviour of input component , instead just use it to enhance and return the updated component.
 eg. Labelling restaurant cards to promoted.
